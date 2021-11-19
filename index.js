@@ -66,16 +66,6 @@ app.post('/conversa', (req, res) => {
 )
 
 /*
-    Encerra conversa
-
-    O que deverá fazer?
-    Encerrar uma conversa dado um id
-
-    O que deverá ser enviado?
-    O id
-*/
-
-/*
     Envia mensagem para o servidor
 
     O que deverá fazer?
@@ -84,6 +74,25 @@ app.post('/conversa', (req, res) => {
     O que deverá ser enviado?
     O id da conversa, um cargo, nome e mensagem
 */
+
+app.post('/mensagem', (req, res) => {
+    id = req.body.id
+    cargo = req.body.cargo
+    nome = req.body.nome
+    mensagem = req.body.mensagem
+
+    mensagem = {
+        "cargo": cargo,
+        "mensagem": mensagem,
+        "nome": nome
+    }
+
+    conversas[id].push(mensagem)
+
+    console.log(conversas)
+    res.status(200).send()
+}
+)
 
 /*
     Método de verificação de conversa
@@ -105,4 +114,14 @@ app.post('/conversa', (req, res) => {
     Nada
 */
 
-app.listen(process.env.PORT || 3000, () => console.log(`Em execução. Porta: ${2000}.`))
+/*
+    Encerra conversa
+
+    O que deverá fazer?
+    Encerrar uma conversa dado um id
+
+    O que deverá ser enviado?
+    O id
+*/
+
+app.listen(process.env.PORT || 2000, () => console.log(`Em execução. Porta: ${2000}.`))
