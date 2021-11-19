@@ -108,8 +108,8 @@ app.post('/mensagem', (req, res) => {
 app.get('/mensagem', (req, res) => {
     console.log(req)
     id = req.query.id
-    qtdMensagens = req.body.qtdMensagens
-    conversas[id].length
+    qtdMensagens = req.query.qtdMensagens
+    //conversas[id].length
     if(qtdMensagens != conversas[id].length){
         res.status(200).send(conversas[id])
     }else{
