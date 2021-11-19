@@ -106,13 +106,15 @@ app.post('/mensagem', (req, res) => {
 
 
 app.get('/mensagem', (req, res) => {
-    console.log(req)
+    //console.log(req)
     id = req.query.id
     qtdMensagens = req.query.qtdMensagens
+    console.log(conversas)
+    console.log(conversas[id].length)
+    console.log(qtdMensagens)
     //conversas[id].length
     if(qtdMensagens != conversas[id].length){
-        console.log(conversas.id.length)
-        console.log(qtdMensagens)
+        
         res.status(200).send(conversas[id])
     }else{
         res.status(200).send(false)
