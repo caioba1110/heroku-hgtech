@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 
+app.use(express.json())
 conversas = {}
 
 app.get('/', (req, res) => res.send('Hello world!'))
@@ -46,12 +47,18 @@ app.get('/conversa', (req, res) => res.send('Estou retornando uma conversa'))
     Nada
 */
 app.post('/conversa', (req, res) => {
-    if(Object.keys(conversas).length > 0){
-        id = int(conversas[conversas.length - 1]) + 1
+    if (Object.keys(conversas).length > 0) {
+        ponteiro = Object.keys(conversas).length - 1
+        console.log(ponteiro)
+        id_int = parseInt(Object.keys(conversas)[ponteiro]) + 1
+        console.log(id_int)
+        id = id_int.toString()
+        console.log(id)
 
-        conversas[str(id)] = {}
-        res.send(str(id))
-    }else{
+        conversas[id] = {}
+
+        res.send(id)
+    } else {
         conversas["1"] = []
         res.send("1")
     }
@@ -98,4 +105,4 @@ app.post('/conversa', (req, res) => {
     Nada
 */
 
-app.listen(process.env.PORT || 3000)
+app.listen(process.env.PORT || 3000, () => console.log(`Em execução. Porta: ${2000}.`))
