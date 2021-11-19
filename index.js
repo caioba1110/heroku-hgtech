@@ -4,9 +4,9 @@ const app = express()
 app.use(express.json())
 conversas = {}
 
-app.get('/', (req, res) => res.send('Hello world!'))
+//app.get('/', (req, res) => res.send('Hello world!'))
 
-app.get('/conversa', (req, res) => res.send('Estou retornando uma conversa'))
+//app.get('/conversa', (req, res) => res.send('Estou retornando uma conversa'))
 
 /*
     FORMATO DA CONVERSA
@@ -103,6 +103,23 @@ app.post('/mensagem', (req, res) => {
     O que deverá ser enviado?
     id da conversa e quantidade de mensagens na conversa.
 */
+
+
+app.get('/mensagem', (req, res) => {
+    console.log(req)
+    id = req.query.id
+    qtdMensagens = req.body.qtdMensagens
+    conversas[id].length
+    if(qtdMensagens != conversas[id].length){
+        res.status(200).send(conversas[id])
+    }else{
+        res.status(200).send(false)
+    }
+
+   
+}
+)
+
 
 /* 
     Coleta os ids das conversas
