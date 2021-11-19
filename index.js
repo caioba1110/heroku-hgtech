@@ -111,6 +111,8 @@ app.get('/mensagem', (req, res) => {
     qtdMensagens = req.query.qtdMensagens
     //conversas[id].length
     if(qtdMensagens != conversas[id].length){
+        console.log(conversas.id.length)
+        console.log(qtdMensagens)
         res.status(200).send(conversas[id])
     }else{
         res.status(200).send(false)
