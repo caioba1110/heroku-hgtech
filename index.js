@@ -55,7 +55,7 @@ app.post('/conversa', (req, res) => {
         id = id_int.toString()
         console.log(id)
 
-        conversas[id] = {}
+        conversas[id] = []
 
         res.send(id)
     } else {
