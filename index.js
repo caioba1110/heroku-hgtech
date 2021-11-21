@@ -88,8 +88,7 @@ app.post('/mensagem', (req, res) => {
     }
 
     conversas[id].push(mensagem)
-
-    console.log(conversas)
+    
     res.status(200).send()
 }
 )
@@ -109,9 +108,7 @@ app.get('/mensagem', (req, res) => {
     //console.log(req)
     id = req.query.id
     qtdMensagens = req.query.qtdMensagens
-    console.log(conversas)
-    console.log(conversas[id].length)
-    console.log(qtdMensagens)
+    
     //conversas[id].length
     if(qtdMensagens != conversas[id].length){
         
@@ -134,6 +131,14 @@ app.get('/mensagem', (req, res) => {
     O que deverá ser enviado?
     Nada
 */
+
+app.get('/conversa', (req, res) => {
+    //console.log(req)
+
+    res.send(Object.keys(conversas))
+   
+}
+)
 
 /*
     Encerra conversa
