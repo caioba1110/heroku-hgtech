@@ -150,4 +150,15 @@ app.get('/conversa', (req, res) => {
     O id
 */
 
+app.delete('/conversa', (req, res) => {
+    //console.log(req)
+    id = req.body.id
+
+    delete conversas[id]
+
+    res.send(Object.keys(id))
+   
+}
+)
+
 app.listen(process.env.PORT || 2000, () => console.log(`Em execução. Porta: ${2000}.`))
