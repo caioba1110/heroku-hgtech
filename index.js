@@ -154,6 +154,9 @@ app.delete('/conversa', (req, res) => {
     //console.log(req)
     id = req.body.id
 
+    console.log(id)
+    console.log(conversas)
+
     delete conversas[id]
 
     res.send(Object.keys(id))
